@@ -1,19 +1,19 @@
 export const MENU_LIST = [
   {
     label: 'About',
-    route: '/main/about',
+    route: 'about',
   },
   {
     label: 'Experience',
-    route: '/main/experience',
+    route: 'experience',
   },
   {
     label: 'Projects',
-    route: '/main/projects',
+    route: 'projects',
   },
   {
     label: 'Contact',
-    route: '/main/contact',
+    route: 'contact',
   },
 ]
 
