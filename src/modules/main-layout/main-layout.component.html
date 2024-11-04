@@ -1,0 +1,39 @@
+<div class="w-full h-screen">
+  <!-- <div
+    id="light"
+    class="pointer-events-none fixed inset-0 z-30 transition duration-300 lg:absolute lg:block  hidden"
+    style="
+      background: radial-gradient(
+        600px at 804px 555px,
+        rgba(29, 78, 216, 0.15),
+        transparent 80%
+      );
+    "
+  ></div> -->
+  <div
+    id="light"
+    class="pointer-events-none fixed inset-0 z-30 transition duration-300 lg:absolute lg:block  hidden"
+  ></div>
+  <app-topbar (emitDarkMode)="emitDarkMode($event)"></app-topbar>
+
+  <div
+    class="grid grid-cols-12 lg:h-[calc(100vh-6rem)] md:h-[calc(100vh-5rem)] h-[calc(100vh-4rem)] "
+  >
+  <!-- Column 1 -->
+  <div class="md:col-span-4 h-full p-5 dark:bg-[#070707] hidden md:block">
+    <app-user-profile></app-user-profile>
+  </div>
+    <!-- Column 2 -->
+    <div
+      class="md:col-span-8 h-full p-5 md:pr-14 lg:pr-16  col-span-12 overflow-auto  scrollbar-thin scrollbar-thumb-scroll-thumb scrollbar-track-scroll-track"
+    >
+      <div class="md:hidden">
+        <app-user-profile></app-user-profile>
+      </div>
+      <ng-content>
+        <router-outlet></router-outlet>
+        <app-social-media class="fixed bottom-0 lg:right-[22px] md:right-[15px] md:block hidden" [darkMode]="switchDarkMode"></app-social-media>
+      </ng-content>
+    </div>
+  </div>
+</div>

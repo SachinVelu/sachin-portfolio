@@ -1,0 +1,6 @@
+<app-header [header]="'Experience'" class="w-full"></app-header>
+<div class="">
+  @for(experience of experienceInfo; track experience){
+    <app-experience-card [cardData]="experience"></app-experience-card>
+  }
+</div>

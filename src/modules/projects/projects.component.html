@@ -1,0 +1,13 @@
+<app-header [header]="'Projects'" class="w-full"></app-header>
+<div class="grid grid-flow-row auto-rows-max lg:gap-4 md:gap-2 gap-1 px-1 md:px-2 lg:px-4
+lg:grid-cols-[repeat(auto-fit,minmax(240px,1fr))]
+  md:grid-cols-[repeat(auto-fit,minmax(180px,1fr))]
+  sm:grid-cols-[repeat(auto-fit,minmax(180px,1fr))]
+  grid-cols-[repeat(auto-fit,minmax(170px,1fr))]">
+
+  <!-- Project Cards -->
+  @for (project of projectCardInfo; track project) {
+    <app-project-card [projectData]="project"></app-project-card>
+  }
+
+</div>

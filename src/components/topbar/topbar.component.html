@@ -1,0 +1,84 @@
+<!-- topbar -->
+<div
+  class="lg:h-24 md:h-20 h-16 px-6 w-full bg-[#13233b] dark:bg-[#111111] flex items-center justify-start lg:justify-between md:justify-between lg:px-12 md:px-8 shadow-md"
+  [class.animate-fade-in-down]="isLoaded"
+>
+  <div
+    class="bg-[url('/public/assets/logo/logo.png')] w-9 h-9 md:w-12 md:h-12 lg:w-16 lg:h-16 mx-5 bg-cover bg-center rounded-full md:justify-start"
+  [routerLink]="['/main/about']"></div>
+  <nav class="mx-28 lg:ml-auto md:ml-auto hidden md:block md:mx-14">
+    <ul
+      class="text-white flex justify-center items-center lg:text-base md:text-sm"
+    >
+      @for(menu of menuList; track menu;){
+      <li class="lg:px-3 md:px-2 cursor-pointer relative inline-block hover:text-teal-400 font-semibold hover:transition-all hover:duration-300 group" [routerLink]="menu?.route" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ menu.label }}
+        <span class="absolute left-0 bottom-0 w-full h-[2px] bg-teal-400 transform scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-75"></span>
+      </li>
+      }
+    </ul>
+  </nav>
+  <!-- <div class="md:flex items-center justify-center hidden">
+    @for (media of socialMediaList; track media) {
+    <div class="lg:px-5 md:px-3">
+      <img
+        [src]="media.path"
+        class="lg:w-8 lg:h-8 md:w-6 md:h-6"
+        [ngClass]="{
+          'rounded-lg dark:border-none': media.name === 'github'
+        }"
+        [alt]="media.altText"
+      />
+    </div>
+    }-->
+    <div class="lg:px-5 md:px-3">
+      <i
+        [ngClass]="darkMode ? 'pi pi-moon' : 'pi pi-sun'"
+        class="text-white lg:text-base md:text-xs bg-[#ffffff09] cursor-pointer rounded-md dark:border-none lg:px-[8px] lg:py-[4px] md:px-[6px] md:py-[4px] backdrop-blur-sm shadow-md"
+        (click)="toggleDarkMode()"
+      ></i>
+    </div>
+ <!-- </div> -->
+  <div class="md:hidden ml-auto lg:w-8 lg:h-8 md:w-6 md:h-6">
+    <i
+      [ngClass]="darkMode ? 'pi pi-moon' : 'pi pi-sun'"
+      class="text-white text-base mx-3"
+      (click)="toggleDarkMode()"
+    ></i>
+    <i
+      class="pi pi-bars text-white mx-3"
+      (click)="openMenuList(contentDiv)"
+    ></i>
+  </div>
+</div>
+<nav
+  #contentDiv
+  class="md:hidden dark:bg-[#222222] overflow-hidden transition-max-height duration-500 ease-in-out absolute w-full z-20 bg-[#0d1626] shadow-2xl text-white"
+  [style.maxHeight]="showList ? contentHeight + 'px' : '0px'"
+>
+  <ul class="dark:text-white flex flex-col">
+    @for(menu of menuList; track menu;){
+    <li
+      class="py-3 border-b border-[#1c273999] dark:border-[#363636] w-100 text-center font-semibold cursor-pointer" [routerLink]="menu?.route" routerLinkActive="active-mobile" [routerLinkActiveOptions]="{ exact: true }"
+    (click)="showList=!showList">
+      {{ menu.label }}
+    </li>
+    }
+    <li
+      class="py-3 flex justify-center items-center border-b border-[#1c273999] dark:border-[#363636]"
+    >
+      @for (media of socialMediaList; track media) {
+      <div class="px-4">
+        <img
+          [src]="media.path"
+          class="w-8 h-8"
+          [ngClass]="{
+            'border-[#434446] border rounded-lg dark:border-none':
+              media.name === 'github'
+          }"
+          [alt]="media.altText"
+        />
+      </div>
+      }
+    </li>
+  </ul>
+</nav>

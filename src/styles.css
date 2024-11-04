@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+/* Import PrimeIcons and other CSS files first */
+@import "primeicons/primeicons.css";
+
+/* Now add Tailwind's base, components, and utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* You can add custom global styles below */
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.active {
+  @apply text-[#5eead4] font-semibold; /* Apply Tailwind utility classes */
+}
+.active-mobile {
+  @apply text-[#5eead4]; /* Apply Tailwind utility classes */
+}
+
+html{
+  scrollbar-width: thin;
+  scrollbar-color: #495670 #0a192f;
+  scroll-behavior: smooth;
+}
+

@@ -1,0 +1,18 @@
+<div class="w-max md:hover:scale-105 hover:bg-slate-400/10 dark:hover:bg-[#ede5e517] transition-transform duration-200 ease-in-out m-4 p-2 shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] drop-shadow-lg bg-[#1b2644] dark:bg-[#3b3b3b36] rounded-lg flex flex-col">
+  <div [ngStyle]="{'background-image': projectData().imagePath ? 'url(' + projectData().imagePath + ')' : 'url(\'/public/assets/other_images/portfolio.png\')'}"  class="bg-center bg-contain bg-no-repeat lg:w-48 lg:h-28 md:w-40 md:h-28 w-30 h-20 rounded-lg"></div>
+  <div>
+    <h3 class="font-medium p-1 sm:text-base text-sm text-white lg:w-48 md:w-40">{{projectData().projectName}}</h3>
+    <div class="text-justify text-sm  lg:w-48 md:w-40 w-36 p-1 text-[#94a3b8] line-clamp-3">
+      {{projectData().projectDescription}}
+    </div>
+
+    <div class="flex flex-wrap items-center justify-center mt-1 text-justify lg:w-48 md:w-40 w-36">
+      <div class="px-4 py-0.5 m-1  flex items-center justify-center">
+        <a [href]="projectData().githubUrl" class="cursor-pointer"><img
+          [src]="'public/assets/social_media/github.svg'"
+          class="lg:w-6 lg:h-6 w-6"
+        /></a>
+      </div>
+    </div>
+  </div>
+</div>

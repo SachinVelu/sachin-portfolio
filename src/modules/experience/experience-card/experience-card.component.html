@@ -1,0 +1,33 @@
+<div class="group">
+  <div
+    class="md:flex  md:hover:bg-slate-500/10 p-5 rounded-lg lg:-inset-x-6 md:group-hover:bg-slate-800/50 md:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] md:group-hover:drop-shadow-lg"
+  >
+    <div
+      class="w-max whitespace-nowrap lg:mr-10 md:mr-5 mr-4 lg:text-sm md:text-sm text-sm font-semibold text-slate-500 lg:pt-2.5 md:pt-2.5 text-justify"
+    >
+      {{cardData().fromYear}} &mdash; {{cardData().toYear === currentYear ? 'PRESENT' : cardData().toYear }}
+    </div>
+    <div class="md:flex flex-col md:w-max mt-2">
+      <div
+        class="text-white lg:text-lg text-base font-semibold group-hover:text-teal-400"
+      >
+        {{cardData().role}} &middot; {{cardData().organization}}
+      </div>
+      <div class="text-[#94a3b8] lg:text-base text-sm lg:mt-2 text-justify font-normal">
+        {{cardData().description}}
+      </div>
+      <div class="flex flex-wrap mt-2 text-justify">
+        @for(skill of cardData().skills; track skill){
+        <div
+          class="lg:px-5 lg:py-1 md:px-4 md:py-0.5 px-4 py-0.5 m-1 rounded-full bg-teal-400/10 flex items-center justify-center"
+        >
+          <span
+            class="text-teal-400 lg:text-sm md:text-sm text-sm font-medium"
+            >{{skill}}</span
+          >
+        </div>
+      }
+      </div>
+    </div>
+  </div>
+</div>
