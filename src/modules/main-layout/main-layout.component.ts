@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SocialMediaComponent } from '../../components/social-media/social-media.component';
@@ -15,7 +16,8 @@ import { UserProfileComponent } from '../../components/user-profile/user-profile
 export class MainLayoutComponent {
   public switchDarkMode = false;
   public gradient = "rgba(29, 78, 216, 0.15)";
-  constructor(private renderer: Renderer2, private el: ElementRef) {}
+  countryData!: {};
+  constructor(private renderer: Renderer2, private el: ElementRef,private http:HttpClient) {}
 
   ngOnInit(): void {
     const light = this.el.nativeElement.querySelector('#light');
@@ -31,5 +33,11 @@ export class MainLayoutComponent {
     this.gradient = htmlElement.classList.contains('dark') ? "rgba(4, 47, 46, 0.15)" : "rgba(29, 78, 216, 0.15)";
     this.switchDarkMode = htmlElement.classList.contains('dark') ? true : false;
     console.log(this.switchDarkMode);
+  }
+
+  fetchCountry(){
+    this.http.get('https://restcountries.com/v3.1/name/india').subscribe((res:any)=>{
+      this.countryData = res
+    })
   }
 }
