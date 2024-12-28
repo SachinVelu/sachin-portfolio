@@ -16,4 +16,8 @@ export class SocialMediaComponent {
   getDarkModeImg(imgPath:string):string{
     return imgPath?.split('.')[0]+'-dark.svg'
   }
+
+  openLink(link:string){
+    window.open(link,'_blank');
+  }
 }

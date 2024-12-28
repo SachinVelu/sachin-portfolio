@@ -6,6 +6,7 @@
         [src]="darkMode() ? getDarkModeImg(media.path) : media.path"
         class="lg:w-6 lg:h-6 md:w-6 md:h-6 hover:scale-x-150 hover:scale-y-150 cursor-pointer"
         [alt]="media.altText"
+        (click)="openLink(media.link)"
       />
     </div>
     }

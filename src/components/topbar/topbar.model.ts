@@ -7,4 +7,5 @@ export interface ISocialMedia {
   path:string;
   altText:string;
   name:string;
+  link:string;
 }
