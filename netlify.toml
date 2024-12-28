@@ -1,5 +1,13 @@
+[build]
+  # Base directory for the Angular app
+  base = "apps/sachin-portfolio"
+  # Directory containing built files for deployment
+  publish = "dist/sachin-portfolio"
+  # Build command for the Angular project
+  command = "ng build --configuration production"
+
 [[redirects]]
-  # Redirect all routes to index.html for SPA support
+  # Redirect all paths to index.html for SPA support
   from = "/*"
   to = "/index.html"
   status = 200
