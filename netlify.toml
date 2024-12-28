@@ -1,6 +1,6 @@
 [build]
   # Base directory is not needed since your project is at the root
-  publish = "dist/sachin-portfolio"
+  publish = "dist/sachin-portfolio/browser"
   command = "ng build --configuration production"
 
 [[redirects]]
