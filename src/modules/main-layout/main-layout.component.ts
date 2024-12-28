@@ -1,5 +1,4 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SocialMediaComponent } from '../../components/social-media/social-media.component';
@@ -9,15 +8,14 @@ import { UserProfileComponent } from '../../components/user-profile/user-profile
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [TopbarComponent,CommonModule,RouterModule,UserProfileComponent,SocialMediaComponent,HttpClientModule],
+  imports: [TopbarComponent,CommonModule,RouterModule,UserProfileComponent,SocialMediaComponent],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.css'
 })
 export class MainLayoutComponent {
   public switchDarkMode = false;
   public gradient = "rgba(29, 78, 216, 0.15)";
-  countryData!: {};
-  constructor(private renderer: Renderer2, private el: ElementRef,private http:HttpClient) {}
+  constructor(private renderer: Renderer2, private el: ElementRef) {}
 
   ngOnInit(): void {
     const light = this.el.nativeElement.querySelector('#light');
@@ -33,11 +31,5 @@ export class MainLayoutComponent {
     this.gradient = htmlElement.classList.contains('dark') ? "rgba(4, 47, 46, 0.15)" : "rgba(29, 78, 216, 0.15)";
     this.switchDarkMode = htmlElement.classList.contains('dark') ? true : false;
     console.log(this.switchDarkMode);
-  }
-
-  fetchCountry(){
-    this.http.get<any>('https://restcountries.com/v3.1/name/india').subscribe((res:any)=>{
-      this.countryData = res
-    })
   }
 }
