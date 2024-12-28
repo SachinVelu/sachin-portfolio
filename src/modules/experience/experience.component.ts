@@ -14,9 +14,9 @@ export class ExperienceComponent {
 
   public experienceInfo:ICardData[]=[
     {
-      fromYear:'2020',
+      fromYear:'2022',
       toYear:'2024',
-      role:'Associate Software Developer',
+      role:'Software Developer',
       organization:'Solverminds Solutions & Technologies',
       description:'Designed and developed full-stack solutions for maritime human resource planning using a scheduler-based concept. I built responsive UIs, developed APIs, managed databases, and ensured system security and scalability, delivering efficient and seamless performance.',
       skills:['Angular','HTML','CSS','Java Script','Type Script','Java','Springboot','Git']

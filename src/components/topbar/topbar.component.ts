@@ -12,6 +12,7 @@ import { IMenuItem, ISocialMedia } from './topbar.model';
   styleUrl: './topbar.component.css'
 })
 export class TopbarComponent implements OnInit{
+
   public isLoaded = false;
   public darkMode = false;
   public showList = false;
@@ -44,6 +45,10 @@ export class TopbarComponent implements OnInit{
         this.contentHeight = contentDiv.scrollHeight;
       }
       this.showList = !this.showList;
+    }
+
+  openLink(link: string) {
+     window.open(link, '_blank');
     }
 
 }
