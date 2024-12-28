@@ -16,7 +16,7 @@
   ></div>
   <app-topbar (emitDarkMode)="emitDarkMode($event)"></app-topbar>
   <button (click)="fetchCountry()">countries</button>
-  <div>
+  <div class="text-white">
     {{countryData | json}}
   </div>
 

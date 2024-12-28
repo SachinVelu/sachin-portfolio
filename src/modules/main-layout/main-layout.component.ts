@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SocialMediaComponent } from '../../components/social-media/social-media.component';
@@ -9,7 +9,7 @@ import { UserProfileComponent } from '../../components/user-profile/user-profile
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [TopbarComponent,CommonModule,RouterModule,UserProfileComponent,SocialMediaComponent],
+  imports: [TopbarComponent,CommonModule,RouterModule,UserProfileComponent,SocialMediaComponent,HttpClientModule],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.css'
 })
@@ -36,7 +36,7 @@ export class MainLayoutComponent {
   }
 
   fetchCountry(){
-    this.http.get('https://restcountries.com/v3.1/name/india').subscribe((res:any)=>{
+    this.http.get<any>('https://restcountries.com/v3.1/name/india').subscribe((res:any)=>{
       this.countryData = res
     })
   }
