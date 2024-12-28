@@ -1,9 +1,6 @@
 [build]
-  # Base directory for the Angular app
-  base = "apps/sachin-portfolio"
-  # Directory containing built files for deployment
+  # Base directory is not needed since your project is at the root
   publish = "dist/sachin-portfolio"
-  # Build command for the Angular project
   command = "ng build --configuration production"
 
 [[redirects]]
